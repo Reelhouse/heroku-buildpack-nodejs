@@ -83,6 +83,8 @@ fi
   fi
 
   status "Installing dependencies"
+  # Fix http://blog.npmjs.org/post/78085451721/npms-self-signed-certificate-is-no-more#disqus_thread
+  npm config set ca ""
   # Make npm output to STDOUT instead of its default STDERR
   npm install --userconfig $build_dir/.npmrc --production 2>&1 | indent
 )
